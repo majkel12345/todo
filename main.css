@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+}
+
+.container {
+  height: 100vh;
+  background-color: rgb(194, 193, 193);
+}
+
+h1 {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 2rem;
+  color: #f4f4f4;
+  /* text-shadow: 0 0 1em black; */
+  text-shadow: 2px 2px 8px black;
+}
+
+.input__container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.input {
+  width: 350px;
+  height: 40px;
+  border: none;
+  border-radius: 50px 0 0 50px;
+  text-align: center;
+  outline: none;
+}
+
+.input:focus {
+  box-shadow: 0 0 1em gold;
+}
+
+.submit__Btn {
+  border-radius: 0 50px 50px 0;
+  border: none;
+  background-color: rgb(255, 153, 0);
+  width: 70px;
+  outline: none;
+}
+
+.submit__Btn:hover {
+  opacity: 0.7;
+  box-shadow: 0 0 1em gold;
+}
+
+.todo {
+  text-align: center;
+  overflow-y: scroll;
+  height: 400px;
+}
+
+.remove__btn {
+  width: 30px;
+  height: 27px;
+  background-color: crimson;
+  border: 1px solid white;
+  color: #f4f4f4;
+}
+
+.edit__btn {
+  width: 75px;
+  height: 27px;
+  background-color: blue;
+  border: 1px solid white;
+  color: #f4f4f4;
+}
+
+.addedTodo {
+  width: 300px;
+  height: 25px;
+  border: none;
+  border-radius: 8px 0 0 8px;
+  text-align: center;
+  outline: none;
+  margin: 5px 0;
+  background-color: #f4f4f4;
+}

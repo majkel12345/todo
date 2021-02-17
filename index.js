@@ -4,21 +4,57 @@ const todos = document.querySelector(".todo");
 
 class List {
   addItem(text) {
-    // const text = input.value;
-    const newTodo = document.createElement("li");
-    newTodo.classList.add("addedTodo");
-    newTodo.innerText = text;
+    const newDiv = document.createElement("div");
+    newDiv.classList.add("newDiv");
 
-    todos.appendChild(newTodo);
+    const removeButton = document.createElement("button");
+    removeButton.classList.add("remove__btn");
+    removeButton.innerText = "X";
+
+    const editButton = document.createElement("button");
+    editButton.classList.add("edit__btn");
+    editButton.innerText = "edit";
+
+    const newTodo = document.createElement("input");
+    newTodo.classList.add("addedTodo");
+    newTodo.type = "text";
+    newTodo.value = text;
+    newTodo.disabled = true;
+
+    todos.appendChild(newDiv);
+    newDiv.appendChild(newTodo);
+    newDiv.appendChild(editButton);
+    newDiv.appendChild(removeButton);
 
     input.value = "";
-    newTodo.addEventListener("click", () => {
-      newTodo.remove();
+
+    removeButton.addEventListener("click", () => {
+      this.removeItem(newDiv);
+    });
+
+    editButton.addEventListener("click", () => {
+      this.editItem(newTodo);
+      if (!newTodo.disabled) {
+        editButton.innerText = "change";
+        editButton.style.backgroundColor = "green";
+      } else {
+        editButton.innerText = "edit";
+        editButton.style.backgroundColor = "blue";
+      }
     });
   }
 
-  removeItem() {
-    remove();
+  editItem(item) {
+    if (item.disabled) {
+      item.disabled = false;
+    } else {
+      item.innerText = item.value;
+      item.disabled = true;
+    }
+  }
+
+  removeItem(item) {
+    todos.removeChild(item);
   }
 }
 
@@ -26,5 +62,5 @@ const list = new List();
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  list.addItem(input.value);
+  if (input.value !== "") list.addItem(input.value);
 });
